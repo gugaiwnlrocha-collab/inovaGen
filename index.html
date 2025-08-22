@@ -1,0 +1,1410 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>InovaGen – Estágios de Pequenas e Médias Empresas</title>
+  <!-- Tailwind for styling -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    input, select, textarea { font-size: 16px; }
+  </style>
+</head>
+<body class="min-h-screen bg-gradient-to-b from-white to-blue-50 text-gray-900">
+  <!-- Header with navigation -->
+  <header class="sticky top-0 z-30 backdrop-blur bg-white/80 border-b border-gray-100">
+    <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
+      <!-- Logo (clicking navigates to top of the page) -->
+      <a href="#" id="logo-link" class="flex items-center gap-2">
+        <!-- Custom logo combining gear and lightning bolt -->
+        <svg class="h-8 w-8" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <!-- Gear icon -->
+          <g fill="#1d4ed8">
+            <path d="M17.004 10.407c.138.435-.216.842-.672.842h-3.465a.75.75 0 0 1-.65-.375l-1.732-3c-.229-.396-.053-.907.393-1.004a5.252 5.252 0 0 1 6.126 3.537Z" />
+            <path fill-rule="evenodd" d="M21 12.75a.75.75 0 1 0 0-1.5h-.783a8.22 8.22 0 0 0-.237-1.357l.734-.267a.75.75 0 1 0-.513-1.41l-.735.268a8.24 8.24 0 0 0-.689-1.192l.6-.503a.75.75 0 1 0-.964-1.149l-.6.504a8.3 8.3 0 0 0-1.054-.885l.391-.678a.75.75 0 1 0-1.299-.75l-.39.676a8.188 8.188 0 0 0-1.295-.47l.136-.77a.75.75 0 0 0-1.477-.26l-.136.77a8.36 8.36 0 0 0-1.377 0l-.136-.77a.75.75 0 1 0-1.477.26l.136.77c-.448.121-.88.28-1.294.47l-.39-.676a.75.75 0 0 0-1.3.75l.392.678a8.29 8.29 0 0 0-1.054.885l-.6-.504a.75.75 0 1 0-.965 1.149l.6.503a8.243 8.243 0 0 0-.689 1.192L3.8 8.216a.75.75 0 1 0-.513 1.41l.735.267a8.222 8.222 0 0 0-.238 1.356h-.783a.75.75 0 0 0 0 1.5h.783c.042.464.122.917.238 1.356l-.735.268a.75.75 0 0 0 .513 1.41l.735-.268c.197.417.428.816.69 1.191l-.6.504a.75.75 0 0 0 .963 1.15l.601-.505c.326.323.679.62 1.054.885l-.392.68a.75.75 0 0 0 1.3.75l.39-.679c.414.192.847.35 1.294.471l-.136.77a.75.75 0 0 0 1.477.261l.137-.772a8.332 8.332 0 0 0 1.376 0l.136.772a.75.75 0 1 0 1.477-.26l-.136-.771a8.19 8.19 0 0 0 1.294-.47l.391.677a.75.75 0 0 0 1.3-.75l-.393-.679a8.29 8.29 0 0 0 1.054-.885l.601.504a.75.75 0 0 0 .964-1.15l-.6-.503c.261-.375.492-.774.69-1.191l.735.267a.75.75 0 1 0 .512-1.41l-.734-.267c.115-.439.195-.892.237-1.356h.784Zm-2.657-3.06a6.744 6.744 0 0 0-1.19-2.053 6.784 6.784 0 0 0-1.82-1.51A6.705 6.705 0 0 0 12 5.25a6.8 6.8 0 0 0-1.225.11 6.7 6.7 0 0 0-2.15.793 6.784 6.784 0 0 0-2.952 3.489.76.76 0 0 1-.036.098A6.74 6.74 0 0 0 5.251 12a6.74 6.74 0 0 0 3.366 5.842l.009.005a6.704 6.704 0 0 0 2.18.798l.022.003a6.792 6.792 0 0 0 2.368-.004 6.704 6.704 0 0 0 2.205-.811 6.785 6.785 0 0 0 1.762-1.484l.009-.01.009-.01a6.743 6.743 0 0 0 1.18-2.066c.253-.707.39-1.469.39-2.263a6.74 6.74 0 0 0-.408-2.309Z" clip-rule="evenodd" />
+          </g>
+          <!-- Lightning bolt icon -->
+          <path d="M14.615 1.595a.75.75 0 0 1 .359.852L12.982 9.75h7.268a.75.75 0 0 1 .548 1.262l-10.5 11.25a.75.75 0 0 1-1.272-.71l1.992-7.302H3.75a.75.75 0 0 1-.548-1.262l10.5-11.25a.75.75 0 0 1 .913-.143Z" fill="#fbbf24" transform="translate(5 4) scale(0.55)" />
+        </svg>
+        <div>
+          <div class="font-extrabold leading-tight text-blue-700">InovaGen</div>
+          <div class="text-[11px] text-gray-500 -mt-1">Estágios curtos</div>
+        </div>
+      </a>
+      <!-- Hamburger for mobile -->
+      <button id="menu-btn" class="md:hidden text-gray-700 focus:outline-none">
+        ☰
+      </button>
+      <!-- Navigation links -->
+      <nav id="menu" class="hidden md:flex flex-col md:flex-row gap-4 md:gap-6 items-start md:items-center text-sm text-gray-700">
+        <a href="#como-funciona" class="hover:text-blue-700" id="como-funciona-link">Como funciona</a>
+        <a href="#vagas" class="hover:text-blue-700" id="vagas-link">Vagas</a>
+        <a href="#dicas" class="hover:text-blue-700" id="dicas-link">Dicas</a>
+        <a href="#trilhas" class="hover:text-blue-700" id="trilhas-link">Trilhas</a>
+        <a href="#mentoria" class="hover:text-blue-700" id="mentoria-link">Mentoria</a>
+        <!-- Links específicos para empresas (visíveis somente quando o usuário for do tipo empresa) -->
+        <a href="#minhas-vagas" id="minhas-vagas-link" class="hover:text-blue-700 hidden">Minhas Vagas</a>
+        <a href="#candidatos" id="candidatos-link" class="hover:text-blue-700 hidden">Candidatos</a>
+  <!-- Link para Minhas Candidaturas, oculto até ter candidaturas -->
+  <a href="#candidaturas" id="candidaturas-link" class="hover:text-blue-700 hidden">Minhas Candidaturas</a>
+        <!-- Perfil link, hidden by default until usuário estiver logado -->
+        <a href="#perfil" class="hover:text-blue-700 hidden" id="perfil-link">Perfil</a>
+        <a href="#" id="login-link" class="hover:text-blue-700 md:hidden">Entrar</a>
+        <a href="#" id="signup-link" class="hover:text-blue-700 md:hidden">Cadastre-se</a>
+      </nav>
+      <!-- Desktop actions -->
+      <div class="hidden md:flex items-center gap-3">
+        <!-- Botão de notificações (aparece quando logado) -->
+        <button id="notifications-btn" class="relative text-gray-700 hover:text-blue-700 hidden">
+          <!-- Ícone de sino -->
+          <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M14.243 17.243a2.12 2.12 0 0 1-4.243 0M4.5 8.25a7.5 7.5 0 0 1 15 0c0 2.586.259 4.21 1.114 5.401a.513.513 0 0 1-.429.849h-16.37a.513.513 0 0 1-.429-.849C4.241 12.46 4.5 10.836 4.5 8.25Z" />
+          </svg>
+          <span id="notifications-badge" class="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full px-1 hidden"></span>
+        </button>
+        <a href="#" id="signup-link-desktop" class="text-sm text-gray-700 hover:text-blue-700">Cadastre-se</a>
+        <a href="#" id="login-link-desktop" class="text-sm text-gray-700 hover:text-blue-700">Entrar</a>
+        <!-- User dropdown placeholder -->
+        <div id="user-menu" class="relative hidden">
+          <button id="user-btn" class="flex items-center gap-2 focus:outline-none">
+            <img id="user-avatar" src="" alt="Avatar" class="h-8 w-8 rounded-full object-cover border border-gray-300" />
+            <span id="user-name" class="text-sm font-medium text-gray-700"></span>
+          </button>
+          <div id="user-dropdown" class="hidden absolute right-0 mt-2 w-40 bg-white border border-gray-100 rounded-md shadow-lg z-50">
+            <a href="#perfil" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50">Editar Perfil</a>
+            <a href="#" id="logout-btn" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50">Sair</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero section -->
+    <section class="max-w-6xl mx-auto px-4 py-14 md:py-20 grid md:grid-cols-2 gap-10 items-center">
+      <div>
+        <!-- Removed location tag to simplify header -->
+        <h1 class="text-4xl md:text-5xl font-extrabold leading-tight">
+          Estágios de curta duração em <span class="text-blue-700">pequenas e médias empresas</span>
+        </h1>
+        <p class="text-gray-600 mt-4 text-lg">
+          Conectamos jovens a <strong>pequenas e médias empresas</strong> de Maceió para estágios de curto prazo. Você desenvolve seu currículo e fortalece o empreendedorismo local.
+        </p>
+        <div class="flex items-center gap-3 mt-6">
+        <a href="#vagas" id="hero-ver-vagas" class="rounded-2xl px-5 py-3 text-sm font-semibold bg-yellow-500 text-white shadow-sm hover:bg-yellow-600">Ver vagas</a>
+        </div>
+      </div>
+      <!-- Stats and partnership card -->
+      <div class="rounded-3xl border border-gray-100 shadow-xl bg-white p-6 grid gap-4">
+        <div class="grid grid-cols-3 gap-3">
+          <div class="bg-blue-50 rounded-2xl p-4 text-center">
+            <div class="text-2xl font-bold text-blue-700">500+</div>
+            <div class="text-xs text-gray-500">Estudantes</div>
+          </div>
+          <div class="bg-blue-50 rounded-2xl p-4 text-center">
+            <div class="text-2xl font-bold text-blue-700">30+</div>
+            <div class="text-xs text-gray-500">Pequenas e médias</div>
+          </div>
+          <div class="bg-blue-50 rounded-2xl p-4 text-center">
+            <div class="text-2xl font-bold text-blue-700">15</div>
+            <div class="text-xs text-gray-500">Vagas ativas</div>
+          </div>
+        </div>
+        <div class="bg-yellow-100 border border-yellow-300 text-yellow-800 rounded-2xl p-6">
+          <h3 class="text-lg font-bold mb-1">Parceria com o Sebrae</h3>
+          <p class="text-sm">Cursos de especialização e marketing em parceria com o Sebrae. <a href="https://www.sebrae.com.br" target="_blank" class="underline">Conheça os cursos</a>.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Como funciona -->
+    <section id="como-funciona" class="max-w-6xl mx-auto px-4 py-12 md:py-16">
+      <h2 class="text-3xl md:text-4xl font-extrabold text-center">Como funciona</h2>
+      <p class="text-center text-gray-600 mt-2">Processo simples para estudantes e empresas</p>
+      <div class="grid md:grid-cols-2 gap-6 mt-6">
+        <div class="bg-white rounded-2xl border border-gray-100 shadow-sm p-6">
+          <h3 class="text-lg font-bold text-blue-700 mb-2">Para estudantes</h3>
+          <ol class="mt-2 text-sm text-gray-700 list-decimal list-inside space-y-1">
+            <li>Cadastre-se e indique áreas de interesse.</li>
+            <li>Receba vagas em pequenas e médias empresas, alinhadas ao seu perfil.</li>
+            <li>Desenvolva habilidades com cursos do Sebrae, incluindo marketing para divulgação.</li>
+            <li>Conclua o estágio e receba um <strong>certificado da empresa</strong>.</li>
+          </ol>
+        </div>
+        <div class="bg-white rounded-2xl border border-gray-100 shadow-sm p-6">
+          <h3 class="text-lg font-bold text-blue-700 mb-2">Para empresas</h3>
+          <ol class="mt-2 text-sm text-gray-700 list-decimal list-inside space-y-1">
+            <li>Cadastre sua empresa informando áreas e duração.</li>
+            <li>Receba candidatos selecionados via plataforma.</li>
+            <li>Forneça certificado e aproveite a divulgação dos jovens (cursos de marketing).</li>
+            <li>Fortaleça o ecossistema local, diversificando a economia de Maceió.</li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <!-- Vagas -->
+    <!-- Hidden by default; shown only when the corresponding menu item is clicked -->
+    <section id="vagas" class="hidden max-w-6xl mx-auto px-4 py-12 md:py-16">
+      <h2 class="text-3xl md:text-4xl font-extrabold text-center">Vagas em destaque</h2>
+      <p class="text-center text-gray-600 mt-2">Exemplos de oportunidades em pequenas e médias empresas</p>
+      <!-- Filtros de vagas -->
+      <div class="mt-6 grid gap-4 md:gap-6 md:grid-cols-4">
+        <div>
+          <label class="block text-sm font-medium text-gray-700 mb-1">Área</label>
+          <select id="filter-area" class="w-full bg-gray-50 border border-gray-200 rounded-xl px-3 py-2.5 text-sm">
+            <option value="">Todas</option>
+            <option value="Produção">Produção</option>
+            <option value="Marketing">Marketing</option>
+          </select>
+        </div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700 mb-1">Modalidade</label>
+          <select id="filter-modalidade" class="w-full bg-gray-50 border border-gray-200 rounded-xl px-3 py-2.5 text-sm">
+            <option value="">Todas</option>
+            <option value="Presencial">Presencial</option>
+            <option value="Híbrido">Híbrido</option>
+          </select>
+        </div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700 mb-1">Experiência prévia</label>
+          <select id="filter-experiencia" class="w-full bg-gray-50 border border-gray-200 rounded-xl px-3 py-2.5 text-sm">
+            <option value="">Todas</option>
+            <option value="Sim">Sim</option>
+            <option value="Não">Não</option>
+          </select>
+        </div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700 mb-1">Modelo</label>
+          <select id="filter-modelo" class="w-full bg-gray-50 border border-gray-200 rounded-xl px-3 py-2.5 text-sm">
+            <option value="">Todos</option>
+            <option value="Remoto">Remoto</option>
+            <option value="Híbrido">Híbrido</option>
+            <option value="Presencial">Presencial</option>
+          </select>
+        </div>
+      </div>
+      <div class="grid md:grid-cols-2 gap-6 mt-6">
+        <!-- Vaga 1 -->
+        <div class="bg-white rounded-2xl border border-gray-100 shadow-sm p-6 job-card" data-area="Produção" data-modalidade="Presencial" data-experiencia="Não" data-modelo="Presencial">
+          <h3 class="text-lg font-bold text-blue-700">Estágio Auxiliar de Produção</h3>
+          <p class="text-sm text-gray-600">Microfábrica XYZ · Produção · 2 meses · Presencial · Maceió/AL</p>
+          <p class="text-sm text-gray-700 mt-2">Apoio em linha de produção e controle de qualidade.</p>
+          <div class="mt-4 flex gap-3 justify-end">
+            <a href="#" class="rounded-2xl px-4 py-2 border border-gray-200 text-gray-700 bg-white">Detalhes</a>
+            <a href="#" class="requires-login rounded-2xl px-4 py-2 bg-blue-700 text-white">Candidatar-me</a>
+          </div>
+        </div>
+        <!-- Vaga 2 -->
+        <div class="bg-white rounded-2xl border border-gray-100 shadow-sm p-6 job-card" data-area="Marketing" data-modalidade="Híbrido" data-experiencia="Sim" data-modelo="Híbrido">
+          <h3 class="text-lg font-bold text-blue-700">Estágio Marketing & Conteúdo</h3>
+          <p class="text-sm text-gray-600">Startup ABC · Marketing · 3 meses · Híbrido · Maceió/AL</p>
+          <p class="text-sm text-gray-700 mt-2">Criação de posts e estratégias de divulgação.</p>
+          <div class="mt-4 flex gap-3 justify-end">
+            <a href="#" class="rounded-2xl px-4 py-2 border border-gray-200 text-gray-700 bg-white">Detalhes</a>
+            <a href="#" class="requires-login rounded-2xl px-4 py-2 bg-blue-700 text-white">Candidatar-me</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Cadastre-se section removed as per latest instructions -->
+
+    <!-- Dicas -->
+    <section id="dicas" class="max-w-6xl mx-auto px-4 py-12 md:py-16">
+      <h2 class="text-3xl md:text-4xl font-extrabold text-center">Dicas</h2>
+      <p class="text-center text-gray-600 mt-2">Fique por dentro das novidades</p>
+      <!-- The search bar has been removed from the Dicas section -->
+      <div class="mt-6 flex justify-center">
+        <!-- search input removed -->
+      </div>
+      <div id="news-list" class="grid md:grid-cols-3 gap-6 mt-6">
+        <!-- News cards -->
+        <a href="https://www.ciadeestagios.com.br/guia-profissional/primeiro-estagio-desafios-e-dicas/" target="_blank" class="news-item block bg-white rounded-2xl border border-gray-100 shadow-sm p-6 hover:bg-gray-50">
+          <h3 class="text-lg font-bold text-blue-700">Dicas para o seu primeiro estágio</h3>
+          <p class="text-sm text-gray-700 mt-2">Prepare-se com nosso guia rápido para seu primeiro estágio e se destaque desde o primeiro dia.</p>
+        </a>
+        <a href="https://www.unit.br/blog/primeiro-emprego-curriculo" target="_blank" class="news-item block bg-white rounded-2xl border border-gray-100 shadow-sm p-6 hover:bg-gray-50">
+          <h3 class="text-lg font-bold text-blue-700">Como criar um currículo impactante</h3>
+          <p class="text-sm text-gray-700 mt-2">Veja quais elementos não podem faltar no seu currículo para pequenas e médias empresas.</p>
+        </a>
+        <a href="https://www.ciadeestagios.com.br/guia-profissional/profissionais-renomados-estagiarios/" target="_blank" class="news-item block bg-white rounded-2xl border border-gray-100 shadow-sm p-6 hover:bg-gray-50">
+          <h3 class="text-lg font-bold text-blue-700">Histórias de sucesso</h3>
+          <p class="text-sm text-gray-700 mt-2">Conheça casos reais de jovens que participaram do InovaGen e alavancaram suas carreiras.</p>
+        </a>
+      </div>
+    </section>
+
+    <!-- Trilhas de Aprendizado (hidden by default) -->
+    <section id="trilhas" class="hidden max-w-6xl mx-auto px-4 py-12 md:py-16">
+      <h2 class="text-3xl md:text-4xl font-extrabold text-center">Trilhas de Aprendizado</h2>
+      <p class="text-center text-gray-600 mt-2">Cursos e trilhas para turbinar sua carreira</p>
+      <div class="grid md:grid-cols-3 gap-6 mt-6">
+        <div class="bg-white rounded-2xl border border-gray-100 shadow-sm p-6">
+          <h3 class="text-lg font-bold text-blue-700">Soft Skills Essenciais</h3>
+          <p class="text-sm text-gray-700 mt-2">Desenvolva habilidades de comunicação, liderança e trabalho em equipe.</p>
+          <!-- Link real para curso de Soft Skills -->
+          <a href="https://www.primecursos.com.br/soft-skills/" target="_blank" rel="noopener noreferrer" class="mt-4 inline-block rounded-2xl px-4 py-2 bg-blue-700 text-white hover:bg-blue-800 transition">Acessar</a>
+        </div>
+        <div class="bg-white rounded-2xl border border-gray-100 shadow-sm p-6">
+          <h3 class="text-lg font-bold text-blue-700">Ferramentas Digitais</h3>
+          <p class="text-sm text-gray-700 mt-2">Aprenda a usar ferramentas de produtividade e marketing digital.</p>
+          <!-- Link real para dicas de ferramentas digitais -->
+          <a href="https://www.negociossc.com.br/blog/10-ferramentas-de-produtividade-que-vao-melhorar-seu-dia/" target="_blank" rel="noopener noreferrer" class="mt-4 inline-block rounded-2xl px-4 py-2 bg-blue-700 text-white hover:bg-blue-800 transition">Acessar</a>
+        </div>
+        <div class="bg-white rounded-2xl border border-gray-100 shadow-sm p-6">
+          <h3 class="text-lg font-bold text-blue-700">Inglês para Negócios</h3>
+          <p class="text-sm text-gray-700 mt-2">Melhore seu inglês focado em negócios e networking.</p>
+          <!-- Link real para dicas de inglês para negócios -->
+          <a href="https://timesidiomas.com.br/blog/dicas-de-ingles-para-negocios/" target="_blank" rel="noopener noreferrer" class="mt-4 inline-block rounded-2xl px-4 py-2 bg-blue-700 text-white hover:bg-blue-800 transition">Acessar</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Rede de Mentoria (hidden by default) -->
+    <section id="mentoria" class="hidden max-w-6xl mx-auto px-4 py-12 md:py-16">
+      <h2 class="text-3xl md:text-4xl font-extrabold text-center">Rede de Mentoria</h2>
+      <p class="text-center text-gray-600 mt-2">Profissionais experientes para orientar sua carreira</p>
+      <div class="grid md:grid-cols-3 gap-6 mt-6">
+        <div class="bg-white rounded-2xl border border-gray-100 shadow-sm p-6">
+          <h3 class="text-lg font-bold text-blue-700">Consultoria de Carreira</h3>
+          <p class="text-sm text-gray-700 mt-2">Agende uma sessão de mentoria com um especialista em carreira.</p>
+          <button class="mt-4 rounded-2xl px-4 py-2 bg-blue-700 text-white">Agendar</button>
+        </div>
+        <div class="bg-white rounded-2xl border border-gray-100 shadow-sm p-6">
+          <h3 class="text-lg font-bold text-blue-700">Mentoria em Marketing</h3>
+          <p class="text-sm text-gray-700 mt-2">Receba orientações sobre estratégias de marketing e branding pessoal.</p>
+          <button class="mt-4 rounded-2xl px-4 py-2 bg-blue-700 text-white">Agendar</button>
+        </div>
+        <div class="bg-white rounded-2xl border border-gray-100 shadow-sm p-6">
+          <h3 class="text-lg font-bold text-blue-700">Finanças para Jovens</h3>
+          <p class="text-sm text-gray-700 mt-2">Aprenda a administrar suas finanças e investir em seu futuro.</p>
+          <button class="mt-4 rounded-2xl px-4 py-2 bg-blue-700 text-white">Agendar</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Minhas Vagas (somente para empresas; hidden por padrão) -->
+    <section id="minhas-vagas" class="hidden max-w-6xl mx-auto px-4 py-12 md:py-16">
+      <h2 class="text-3xl md:text-4xl font-extrabold text-center">Minhas Vagas</h2>
+      <p class="text-center text-gray-600 mt-2">Gerencie as vagas abertas pela sua empresa</p>
+      <div id="minhas-vagas-list" class="grid md:grid-cols-2 gap-6 mt-6">
+        <!-- Exemplo estático de vaga; pode ser dinamizado no futuro -->
+        <div class="bg-white rounded-2xl border border-gray-100 shadow-sm p-6">
+          <h3 class="text-lg font-bold text-blue-700">Cadastre uma nova vaga</h3>
+          <p class="text-sm text-gray-700 mt-2">Clique no botão abaixo para criar uma nova vaga de estágio.</p>
+          <button class="mt-4 rounded-2xl px-4 py-2 bg-blue-700 text-white">Cadastrar vaga</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Candidatos (somente para empresas; hidden por padrão) -->
+    <section id="candidatos" class="hidden max-w-6xl mx-auto px-4 py-12 md:py-16">
+      <h2 class="text-3xl md:text-4xl font-extrabold text-center">Candidatos</h2>
+      <p class="text-center text-gray-600 mt-2">Veja quem se candidatou às suas vagas</p>
+      <div id="candidatos-list" class="grid md:grid-cols-2 gap-6 mt-6">
+        <!-- Lista dinâmica de candidatos será exibida aqui -->
+        <div class="bg-white rounded-2xl border border-gray-100 shadow-sm p-6">
+          <h3 class="text-lg font-bold text-blue-700">Nenhuma candidatura recebida</h3>
+          <p class="text-sm text-gray-700 mt-2">Quando alunos se candidatarem às suas vagas, eles aparecerão aqui.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Minhas Candidaturas -->
+    <section id="candidaturas" class="max-w-6xl mx-auto px-4 py-12 md:py-16 hidden">
+      <h2 class="text-3xl md:text-4xl font-extrabold text-center">Minhas Candidaturas</h2>
+      <p class="text-center text-gray-600 mt-2">Acompanhe o status de cada estágio</p>
+      <div id="candidaturas-list" class="grid md:grid-cols-2 gap-6 mt-6"></div>
+    </section>
+
+    <!-- Perfil -->
+    <section id="perfil" class="max-w-6xl mx-auto px-4 py-12 md:py-16 hidden">
+      <h2 class="text-3xl md:text-4xl font-extrabold text-center">Meu Perfil</h2>
+      <p class="text-center text-gray-600 mt-2">Gerencie seus dados pessoais</p>
+      <form id="perfil-form" class="mt-6 max-w-lg mx-auto bg-white rounded-2xl border border-gray-100 shadow-sm p-6 grid gap-4">
+        <div>
+          <label class="block text-sm font-medium text-gray-700 mb-1">Nome</label>
+          <input id="perfil-nome" required class="w-full bg-gray-50 border border-gray-200 rounded-xl px-3 py-2.5 text-sm" />
+        </div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700 mb-1">E-mail</label>
+          <input id="perfil-email" type="email" required class="w-full bg-gray-50 border border-gray-200 rounded-xl px-3 py-2.5 text-sm" />
+        </div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700 mb-1">Sexo</label>
+          <select id="perfil-sexo" class="w-full bg-gray-50 border border-gray-200 rounded-xl px-3 py-2.5 text-sm">
+            <option value="">Selecione</option>
+            <option value="M">Masculino</option>
+            <option value="F">Feminino</option>
+            <option value="N">Não especificado</option>
+          </select>
+        </div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700 mb-1">Data de Nascimento</label>
+          <input id="perfil-nascimento" type="date" class="w-full bg-gray-50 border border-gray-200 rounded-xl px-3 py-2.5 text-sm" />
+        </div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700 mb-1">CPF</label>
+          <input id="perfil-cpf" class="w-full bg-gray-50 border border-gray-200 rounded-xl px-3 py-2.5 text-sm" />
+        </div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700 mb-1">Foto</label>
+          <div class="flex items-center gap-2">
+            <label for="perfil-foto-upload" class="inline-block rounded-2xl px-3 py-2 text-sm font-semibold bg-gray-200 text-gray-700 cursor-pointer">Escolher arquivo</label>
+            <span id="perfil-foto-label" class="text-sm text-gray-500">Nenhum arquivo selecionado</span>
+          </div>
+          <input id="perfil-foto-upload" type="file" accept="image/*" class="hidden" />
+        </div>
+        <div class="flex justify-center">
+          <img id="perfil-preview" src="" alt="Prévia da foto" class="h-24 w-24 rounded-full object-cover border border-gray-200 hidden" />
+        </div>
+        <div class="flex gap-3 mt-2 justify-end">
+          <button type="button" id="exportar-perfil" class="rounded-2xl px-4 py-2 text-sm font-semibold shadow-sm bg-yellow-500 text-blue-900">Exportar Perfil</button>
+          <label for="importar-perfil-input" class="rounded-2xl px-4 py-2 text-sm font-semibold shadow-sm bg-gray-200 text-gray-700 cursor-pointer">Importar Perfil</label>
+          <input id="importar-perfil-input" type="file" accept="application/json" class="hidden" />
+          <button type="submit" class="rounded-2xl px-4 py-2 text-sm font-semibold shadow-sm bg-blue-700 text-white">Salvar Perfil</button>
+        </div>
+      </form>
+      <!-- Pontuação (gamificação) -->
+      <div class="mt-6">
+        <h3 class="text-lg font-bold text-blue-700">Pontuação</h3>
+        <p class="text-sm text-gray-700">Pontos acumulados: <span id="perfil-pontos">0</span></p>
+      </div>
+    </section>
+
+    <!-- Parcerias -->
+    <!-- Parcerias section removed -->
+  </main>
+
+  <!-- Footer -->
+  <footer class="border-t border-gray-100 bg-white">
+    <div class="max-w-6xl mx-auto px-4 py-8 grid md:grid-cols-2 gap-6 items-center">
+      <div class="flex items-center gap-2">
+        <!-- Custom logo combining gear and lightning bolt in footer as separate icons -->
+        <div class="flex items-center">
+          <svg class="h-8 w-8" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <g fill="#1d4ed8">
+              <path d="M17.004 10.407c.138.435-.216.842-.672.842h-3.465a.75.75 0 0 1-.65-.375l-1.732-3c-.229-.396-.053-.907.393-1.004a5.252 5.252 0 0 1 6.126 3.537Z" />
+              <path fill-rule="evenodd" d="M21 12.75a.75.75 0 1 0 0-1.5h-.783a8.22 8.22 0 0 0-.237-1.357l.734-.267a.75.75 0 1 0-.513-1.41l-.735.268a8.24 8.24 0 0 0-.689-1.192l.6-.503a.75.75 0 1 0-.964-1.149l-.6.504a8.3 8.3 0 0 0-1.054-.885l.391-.678a.75.75 0 1 0-1.299-.75l-.39.676a8.188 8.188 0 0 0-1.295-.47l.136-.77a.75.75 0 0 0-1.477-.26l-.136.77a8.36 8.36 0 0 0-1.377 0l-.136-.77a.75.75 0 1 0-1.477.26l.136.77c-.448.121-.88.28-1.294.47l-.39-.676a.75.75 0 0 0-1.3.75l.392.678a8.29 8.29 0 0 0-1.054.885l-.6-.504a.75.75 0 1 0-.965 1.149l.6.503a8.243 8.243 0 0 0-.689 1.192L3.8 8.216a.75.75 0 1 0-.513 1.41l.735.267a8.222 8.222 0 0 0-.238 1.356h-.783a.75.75 0 0 0 0 1.5h.783c.042.464.122.917.238 1.356l-.735.268a.75.75 0 0 0 .513 1.41l.735-.268c.197.417.428.816.69 1.191l-.6.504a.75.75 0 0 0 .963 1.15l.601-.505c.326.323.679.62 1.054.885l-.392.68a.75.75 0 0 0 1.3.75l.39-.679c.414.192.847.35 1.294.471l-.136.77a.75.75 0 0 0 1.477.261l.137-.772a8.332 8.332 0 0 0 1.376 0l.136.772a.75.75 0 1 0 1.477-.26l-.136-.771a8.19 8.19 0 0 0 1.294-.47l.391.677a.75.75 0 0 0 1.3-.75l-.393-.679a8.29 8.29 0 0 0 1.054-.885l.601.504a.75.75 0 0 0 .964-1.15l-.6-.503c.261-.375.492-.774.69-1.191l.735.267a.75.75 0 1 0 .512-1.41l-.734-.267c.115-.439.195-.892.237-1.356h.784Zm-2.657-3.06a6.744 6.744 0 0 0-1.19-2.053 6.784 6.784 0 0 0-1.82-1.51A6.705 6.705 0 0 0 12 5.25a6.8 6.8 0 0 0-1.225.11 6.7 6.7 0 0 0-2.15.793 6.784 6.784 0 0 0-2.952 3.489.76.76 0 0 1-.036.098A6.74 6.74 0 0 0 5.251 12a6.74 6.74 0 0 0 3.366 5.842l.009.005a6.704 6.704 0 0 0 2.18.798l.022.003a6.792 6.792 0 0 0 2.368-.004 6.704 6.704 0 0 0 2.205-.811 6.785 6.785 0 0 0 1.762-1.484l.009-.01.009-.01a6.743 6.743 0 0 0 1.18-2.066c.253-.707.39-1.469.39-2.263a6.74 6.74 0 0 0-.408-2.309Z" clip-rule="evenodd" />
+            </g>
+          </svg>
+          <svg class="h-6 w-6 -ml-1" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M14.615 1.595a.75.75 0 0 1 .359.852L12.982 9.75h7.268a.75.75 0 0 1 .548 1.262l-10.5 11.25a.75.75 0 0 1-1.272-.71l1.992-7.302H3.75a.75.75 0 0 1-.548-1.262l10.5-11.25a.75.75 0 0 1 .913-.143Z" fill="#fbbf24" />
+          </svg>
+        </div>
+        <div class="font-extrabold text-blue-700">InovaGen</div>
+      </div>
+      <div class="text-sm text-gray-600 md:text-right">
+        <div>Maceió · AL</div>
+        <div>Contato: inovageneration@gmail.com</div>
+      </div>
+    </div>
+    <div class="text-center text-xs text-gray-500 pb-6">© <span id="year"></span> InovaGen · Todos os direitos reservados</div>
+  </footer>
+
+  <!-- Login Modal -->
+  <div id="login-modal" class="fixed inset-0 z-40 flex items-center justify-center bg-black/50 hidden">
+    <div class="bg-white rounded-xl p-6 w-full max-w-sm mx-4">
+      <h3 class="text-lg font-bold text-center mb-4">Entrar</h3>
+      <form id="login-form" class="grid gap-3">
+        <input id="login-nome" required placeholder="Nome" class="bg-gray-50 border border-gray-200 rounded-xl px-3 py-2.5 text-sm" />
+        <!-- Tipo de usuário: pessoa (estudante) ou empresa -->
+        <select id="login-tipo" class="bg-gray-50 border border-gray-200 rounded-xl px-3 py-2.5 text-sm" onchange="toggleSignupFields(this.value)">
+          <option value="" disabled selected>Tipo de usuário</option>
+          <option value="pessoa">Sou Estudante</option>
+          <option value="empresa">Sou Empresa</option>
+        </select>
+        <input id="login-email" required type="email" placeholder="E-mail" class="bg-gray-50 border border-gray-200 rounded-xl px-3 py-2.5 text-sm" />
+        <!-- Campos específicos para pessoas (estudantes). Agrupados para facilitar esconder/mostrar -->
+        <div id="pessoa-fields">
+          <!-- Seleção de sexo -->
+          <select id="login-sexo" class="bg-gray-50 border border-gray-200 rounded-xl px-3 py-2.5 text-sm">
+            <option value="" disabled selected>Sexo</option>
+            <option value="M">Masculino</option>
+            <option value="F">Feminino</option>
+            <option value="N">Não especificado</option>
+          </select>
+          <!-- Data de nascimento -->
+          <input id="login-nascimento" type="date" placeholder="Data de nascimento" class="bg-gray-50 border border-gray-200 rounded-xl px-3 py-2.5 text-sm" />
+          <!-- CPF -->
+          <input id="login-cpf" placeholder="CPF" class="bg-gray-50 border border-gray-200 rounded-xl px-3 py-2.5 text-sm" />
+          <!-- Foto upload apenas para pessoas -->
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-1">Foto</label>
+            <div class="flex items-center gap-2">
+              <label for="login-foto-upload" class="inline-block rounded-2xl px-3 py-2 text-sm font-semibold bg-gray-200 text-gray-700 cursor-pointer">Escolher arquivo</label>
+              <span id="login-foto-label" class="text-sm text-gray-500">Nenhum arquivo selecionado</span>
+            </div>
+            <input id="login-foto-upload" type="file" accept="image/*" class="hidden" />
+          </div>
+        </div>
+        <!-- Campos específicos para empresas, inicialmente ocultos -->
+        <div id="empresa-fields" class="hidden">
+          <input id="login-cnpj" placeholder="CNPJ" class="bg-gray-50 border border-gray-200 rounded-xl px-3 py-2.5 text-sm" />
+          <input id="login-telefone" placeholder="Telefone de contato" class="bg-gray-50 border border-gray-200 rounded-xl px-3 py-2.5 text-sm" />
+          <input id="login-email-contato" type="email" placeholder="Email de contato" class="bg-gray-50 border border-gray-200 rounded-xl px-3 py-2.5 text-sm" />
+        </div>
+        <button type="submit" class="rounded-2xl px-4 py-2 text-sm font-semibold shadow-sm bg-blue-700 text-white mt-2">Entrar</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Candidatura Modal -->
+  <div id="apply-modal" class="fixed inset-0 z-40 flex items-center justify-center bg-black/50 hidden">
+    <div class="bg-white rounded-xl p-6 w-full max-w-sm mx-4">
+      <h3 class="text-lg font-bold text-center mb-4">Candidatar-se</h3>
+      <form id="apply-form" class="grid gap-3">
+        <input id="apply-nome" required placeholder="Nome" class="bg-gray-50 border border-gray-200 rounded-xl px-3 py-2.5 text-sm" />
+        <input id="apply-email" required type="email" placeholder="E-mail" class="bg-gray-50 border border-gray-200 rounded-xl px-3 py-2.5 text-sm" />
+        <textarea id="apply-mensagem" required placeholder="Mensagem" class="bg-gray-50 border border-gray-200 rounded-xl px-3 py-2.5 text-sm" rows="4"></textarea>
+        <div class="flex gap-3 justify-end mt-2">
+          <button type="button" id="apply-cancel" class="rounded-2xl px-4 py-2 text-sm font-semibold shadow-sm bg-gray-200 text-gray-700">Cancelar</button>
+          <button type="submit" class="rounded-2xl px-4 py-2 text-sm font-semibold shadow-sm bg-blue-700 text-white">Enviar candidatura</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Notifications Modal -->
+  <div id="notifications-modal" class="fixed inset-0 z-40 flex items-center justify-center bg-black/50 hidden">
+    <div class="bg-white rounded-xl p-6 w-full max-w-md mx-4 overflow-y-auto max-h-[80vh]">
+      <h3 class="text-lg font-bold text-center mb-4">Notificações</h3>
+      <ul id="notifications-list" class="space-y-3 text-sm text-gray-700">
+        <!-- Notifications will be inserted here dynamically -->
+      </ul>
+      <div class="flex justify-end mt-4">
+        <button type="button" id="notifications-close" class="rounded-2xl px-4 py-2 text-sm font-semibold shadow-sm bg-blue-700 text-white">Fechar</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Evaluation Modal -->
+  <div id="evaluation-modal" class="fixed inset-0 z-40 flex items-center justify-center bg-black/50 hidden">
+    <div class="bg-white rounded-xl p-6 w-full max-w-sm mx-4">
+      <h3 class="text-lg font-bold text-center mb-4">Avaliar Estágio</h3>
+      <form id="evaluation-form" class="grid gap-3">
+        <label class="block text-sm font-medium text-gray-700">Nota (1-5)</label>
+        <select id="evaluation-nota" required class="bg-gray-50 border border-gray-200 rounded-xl px-3 py-2.5 text-sm">
+          <option value="">Selecione</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+        </select>
+        <textarea id="evaluation-mensagem" placeholder="Comentários" class="bg-gray-50 border border-gray-200 rounded-xl px-3 py-2.5 text-sm" rows="4"></textarea>
+        <div class="flex gap-3 justify-end mt-2">
+          <button type="button" id="evaluation-cancel" class="rounded-2xl px-4 py-2 text-sm font-semibold shadow-sm bg-gray-200 text-gray-700">Cancelar</button>
+          <button type="submit" class="rounded-2xl px-4 py-2 text-sm font-semibold shadow-sm bg-blue-700 text-white">Enviar avaliação</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Chat Modal -->
+  <div id="chat-modal" class="fixed inset-0 z-40 flex items-center justify-center bg-black/50 hidden">
+    <div class="bg-white rounded-xl p-6 w-full max-w-sm mx-4">
+      <h3 class="text-lg font-bold text-center mb-4">Chat</h3>
+      <div id="chat-messages" class="h-48 overflow-y-auto bg-gray-50 rounded-md p-3 mb-4">
+        <!-- Messages will be rendered here -->
+      </div>
+      <form id="chat-form" class="flex gap-2">
+        <input id="chat-input" required placeholder="Digite sua mensagem..." class="flex-grow bg-gray-50 border border-gray-200 rounded-xl px-3 py-2 text-sm" />
+        <button type="submit" class="rounded-xl px-3 py-2 text-sm font-semibold shadow-sm bg-blue-700 text-white">Enviar</button>
+      </form>
+      <div class="flex justify-end mt-3">
+        <button type="button" id="chat-close" class="rounded-2xl px-4 py-2 text-sm font-semibold shadow-sm bg-gray-200 text-gray-700">Fechar</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Simple phone mask: (xx) xxxx-xxxx or (xx) xxxxx-xxxx based on length
+    function phoneMask(value) {
+      const digits = value.replace(/\D/g, '');
+      if (digits.length <= 10) {
+        return digits.replace(/(\d{2})(\d{4})(\d{0,4})/, '($1) $2-$3').replace(/-$/, '');
+      } else {
+        return digits.replace(/(\d{2})(\d{5})(\d{0,4})/, '($1) $2-$3').replace(/-$/, '');
+      }
+    }
+
+    // CPF mask: format as xxx.xxx.xxx-xx
+    function cpfMask(value) {
+      const digits = value.replace(/\D/g, '').substring(0, 11);
+      let cpfFormatted = digits;
+      if (digits.length > 9) {
+        cpfFormatted = digits.replace(/(\d{3})(\d{3})(\d{3})(\d{0,2})/, '$1.$2.$3-$4');
+      } else if (digits.length > 6) {
+        cpfFormatted = digits.replace(/(\d{3})(\d{3})(\d{0,3})/, '$1.$2.$3');
+      } else if (digits.length > 3) {
+        cpfFormatted = digits.replace(/(\d{3})(\d{0,3})/, '$1.$2');
+      }
+      return cpfFormatted.replace(/[-.]$/, '');
+    }
+
+    // Toggle visibility of signup fields based on selected user type
+    function toggleSignupFields(value) {
+      const pessoaFields = document.getElementById('pessoa-fields');
+      const empresaFields = document.getElementById('empresa-fields');
+      if (!pessoaFields || !empresaFields) return;
+      if (value === 'empresa') {
+        pessoaFields.classList.add('hidden');
+        empresaFields.classList.remove('hidden');
+        // Ocultar e desabilitar campo de e-mail principal para empresas
+        const emailInput = document.getElementById('login-email');
+        if (emailInput) {
+          emailInput.classList.add('hidden');
+          emailInput.disabled = true;
+          emailInput.removeAttribute('required');
+          emailInput.value = '';
+        }
+      } else {
+        empresaFields.classList.add('hidden');
+        pessoaFields.classList.remove('hidden');
+        // Mostrar e habilitar campo de e-mail para pessoas
+        const emailInput = document.getElementById('login-email');
+        if (emailInput) {
+          emailInput.classList.remove('hidden');
+          emailInput.disabled = false;
+          emailInput.setAttribute('required', '');
+        }
+      }
+    }
+
+    // Generate a default avatar based on the first letter of the name and gender.
+    // This function creates an SVG with a colored circle and a letter overlay.
+    function generateAvatar(name, gender) {
+      const initial = (name && name.trim().length > 0) ? name.trim()[0].toUpperCase() : 'N';
+      let bgColor;
+      // Assign background color based on gender
+      if (gender === 'M') {
+        bgColor = '#1d4ed8'; // blue tone
+      } else if (gender === 'F') {
+        bgColor = '#f472b6'; // pink tone
+      } else {
+        bgColor = '#d1d5db'; // neutral gray tone
+      }
+      const svg = `<?xml version="1.0" encoding="UTF-8"?>` +
+        `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">` +
+        `<circle cx="50" cy="50" r="50" fill="${bgColor}" />` +
+        `<text x="50" y="65" text-anchor="middle" font-size="60" fill="#ffffff" font-family="Arial, sans-serif">${initial}</text>` +
+        `</svg>`;
+      // Base64 encode the SVG string. Use encodeURIComponent to handle unicode.
+      const base64 = btoa(unescape(encodeURIComponent(svg)));
+      return 'data:image/svg+xml;base64,' + base64;
+    }
+
+    // ----------- Tabs -----------
+    // Define the list of section IDs that behave like tabs. These sections are hidden by default and
+    // are shown only when their corresponding menu item is clicked.
+    // Lista de seções que se comportam como abas. Inclui seções para usuários pessoa (estudantes)
+    // e seções específicas para empresas (minhas-vagas, candidatos). Todas são ocultadas por
+    // padrão e só aparecem quando acionadas.
+    const tabSections = ['vagas', 'trilhas', 'mentoria', 'candidaturas', 'perfil', 'minhas-vagas', 'candidatos'];
+    // Show a specific tab section and hide the others
+    function showSection(sectionId) {
+      tabSections.forEach((id) => {
+        const sec = document.getElementById(id);
+        if (sec) {
+          if (id === sectionId) {
+            sec.classList.remove('hidden');
+          } else {
+            sec.classList.add('hidden');
+          }
+        }
+      });
+    }
+
+    // Apply phone mask only if telephone inputs exist (cadastro forms were removed)
+    const telEst = document.getElementById('telefone-estudante');
+    if (telEst) {
+      telEst.addEventListener('input', function(e) {
+        this.value = phoneMask(this.value);
+      });
+    }
+    const telEmp = document.getElementById('telefone-empresa');
+    if (telEmp) {
+      telEmp.addEventListener('input', function(e) {
+        this.value = phoneMask(this.value);
+      });
+    }
+
+    // Toggle mobile menu
+    document.getElementById('menu-btn').addEventListener('click', () => {
+      const menu = document.getElementById('menu');
+      menu.classList.toggle('hidden');
+    });
+
+    // (Event listener removed: handling of signup fields is done via inline onchange and toggleSignupFields)
+
+    // Tab navigation: handle clicks for the tabbed sections. When a user clicks
+    // on Vagas, Trilhas ou Mentoria in the navigation, prevent the default
+    // anchor behaviour and display only the selected section using the tab system.
+    document.querySelectorAll('a[href="#vagas"]').forEach(link => {
+      link.addEventListener('click', function(e) {
+        e.preventDefault();
+        showSection('vagas');
+        window.location.hash = '#vagas';
+      });
+    });
+    document.querySelectorAll('a[href="#trilhas"]').forEach(link => {
+      link.addEventListener('click', function(e) {
+        e.preventDefault();
+        showSection('trilhas');
+        window.location.hash = '#trilhas';
+      });
+    });
+    document.querySelectorAll('a[href="#mentoria"]').forEach(link => {
+      link.addEventListener('click', function(e) {
+        e.preventDefault();
+        showSection('mentoria');
+        window.location.hash = '#mentoria';
+      });
+    });
+
+    // Navegação para seções específicas de empresas
+    document.querySelectorAll('a[href="#minhas-vagas"]').forEach(link => {
+      link.addEventListener('click', function(e) {
+        e.preventDefault();
+        showSection('minhas-vagas');
+        window.location.hash = '#minhas-vagas';
+      });
+    });
+    document.querySelectorAll('a[href="#candidatos"]').forEach(link => {
+      link.addEventListener('click', function(e) {
+        e.preventDefault();
+        showSection('candidatos');
+        window.location.hash = '#candidatos';
+      });
+    });
+
+    // Logo click: when the user clicks the logo (top-left), hide all tabbed sections
+    // so only the default home sections remain visible. This ensures that the
+    // "Vagas", "Trilhas", "Mentoria", "Minhas Candidaturas" e "Perfil" sections
+    // disappear when returning to the homepage.
+    const logoLink = document.getElementById('logo-link');
+    if (logoLink) {
+      logoLink.addEventListener('click', function() {
+        tabSections.forEach((id) => {
+          const sec = document.getElementById(id);
+          if (sec) sec.classList.add('hidden');
+        });
+      });
+    }
+
+    // Show/hide user dropdown
+    document.getElementById('user-btn')?.addEventListener('click', (e) => {
+      e.preventDefault();
+      document.getElementById('user-dropdown').classList.toggle('hidden');
+    });
+
+    // Removed search-news event listener since the search bar has been removed
+
+    // Helpers for user storage
+    function getUser() {
+      try {
+        const user = JSON.parse(localStorage.getItem('user')) || null;
+        if (user) {
+          // Garantir campos padrão para gamificação, notificações e candidaturas
+          user.points = user.points || 0;
+          user.notifications = user.notifications || [];
+          user.applications = user.applications || [];
+          return user;
+        }
+        return null;
+      } catch (e) {
+        return null;
+      }
+    }
+    function setUser(user) {
+      localStorage.setItem('user', JSON.stringify(user));
+    }
+    function clearUser() {
+      localStorage.removeItem('user');
+    }
+
+    function updateUI() {
+      const user = getUser();
+      const loggedIn = !!user;
+      // Show/hide login links and user menu
+      const loginLink = document.getElementById('login-link');
+      const loginLinkDesktop = document.getElementById('login-link-desktop');
+      const signupLink = document.getElementById('signup-link');
+      const signupLinkDesktop = document.getElementById('signup-link-desktop');
+      const userMenu = document.getElementById('user-menu');
+      if (loggedIn) {
+        loginLink.classList.add('hidden');
+        loginLinkDesktop.classList.add('hidden');
+        signupLink?.classList.add('hidden');
+        signupLinkDesktop?.classList.add('hidden');
+        userMenu.classList.remove('hidden');
+        document.getElementById('user-name').textContent = user.name;
+        const avatar = document.getElementById('user-avatar');
+        const nameForAvatar = user.name || '';
+        const gender = user.gender || 'N';
+        // If no custom photo, generate avatar based on the user's name and gender
+        avatar.src = user.photo || generateAvatar(nameForAvatar, gender);
+        // Show profile link
+        document.getElementById('perfil-link').classList.remove('hidden');
+        // Show notifications button
+        const notifBtn = document.getElementById('notifications-btn');
+        notifBtn.classList.remove('hidden');
+        // Update notifications badge and candidaturas link
+        updateNotificationsBadge();
+        // Show or hide candidaturas nav link based on number of applications
+        const candidaturasLink = document.getElementById('candidaturas-link');
+        const hasApps = user.applications && user.applications.length > 0;
+        // Toggle only the nav link. Do not automatically show the candidaturas section; it will be displayed via tab navigation.
+        candidaturasLink.classList.toggle('hidden', !hasApps);
+        // Update points display
+        document.getElementById('perfil-pontos').textContent = user.points;
+        // Render candidaturas list
+        renderCandidaturas();
+      } else {
+        loginLink.classList.remove('hidden');
+        loginLinkDesktop.classList.remove('hidden');
+        signupLink?.classList.remove('hidden');
+        signupLinkDesktop?.classList.remove('hidden');
+        userMenu.classList.add('hidden');
+        document.getElementById('perfil-link').classList.add('hidden');
+        // Hide notifications and candidaturas link when not logged in
+        const notifBtn = document.getElementById('notifications-btn');
+        if (notifBtn) notifBtn.classList.add('hidden');
+        const candidaturasLink = document.getElementById('candidaturas-link');
+        if (candidaturasLink) candidaturasLink.classList.add('hidden');
+      }
+      // Hide or show buttons requiring login
+      document.querySelectorAll('.requires-login').forEach(btn => {
+        btn.classList.toggle('hidden', !loggedIn);
+      });
+      // If on profile page and not logged in, hide profile section
+      const perfilSection = document.getElementById('perfil');
+      if (!loggedIn) {
+        perfilSection.classList.add('hidden');
+      }
+      // Fill profile form if logged in
+      if (loggedIn) {
+        document.getElementById('perfil-nome').value = user.name || '';
+        document.getElementById('perfil-email').value = user.email || '';
+        document.getElementById('perfil-sexo').value = user.gender || '';
+        document.getElementById('perfil-nascimento').value = user.dob || '';
+        // Populate CPF for pessoa (if exists)
+        const cpfInput = document.getElementById('perfil-cpf');
+        if (cpfInput) {
+          cpfInput.value = user.cpf || '';
+        }
+        // update preview: use user photo or default avatar
+        const preview = document.getElementById('perfil-preview');
+        if (user.photo) {
+          preview.src = user.photo;
+        } else {
+          // When no photo is available, use generated avatar based on name and gender
+          preview.src = generateAvatar(user.name || '', user.gender || 'N');
+        }
+        preview.classList.remove('hidden');
+      }
+
+      // Ajustar navegação conforme o tipo de usuário (empresa ou pessoa)
+      const vagasLinkEl = document.getElementById('vagas-link');
+      const trilhasLinkEl = document.getElementById('trilhas-link');
+      const mentoriaLinkEl = document.getElementById('mentoria-link');
+      const candidaturasNavEl = document.getElementById('candidaturas-link');
+      const minhasVagasNavEl = document.getElementById('minhas-vagas-link');
+      const candidatosNavEl = document.getElementById('candidatos-link');
+      // Para usuários não logados: esconder todas as abas que exigem login
+      if (!loggedIn) {
+        vagasLinkEl?.classList.add('hidden');
+        trilhasLinkEl?.classList.add('hidden');
+        mentoriaLinkEl?.classList.add('hidden');
+        candidaturasNavEl?.classList.add('hidden');
+        minhasVagasNavEl?.classList.add('hidden');
+        candidatosNavEl?.classList.add('hidden');
+      } else if (user.tipo === 'empresa') {
+        // Usuário é empresa: mostrar abas de empresa e ocultar as de estudante
+        vagasLinkEl?.classList.add('hidden');
+        trilhasLinkEl?.classList.add('hidden');
+        mentoriaLinkEl?.classList.add('hidden');
+        // Candidaturas (estudante) não se aplica
+        candidaturasNavEl?.classList.add('hidden');
+        // Mostrar menus de empresa
+        minhasVagasNavEl?.classList.remove('hidden');
+        candidatosNavEl?.classList.remove('hidden');
+      } else {
+        // Usuário é pessoa/estudante: mostrar abas de estudante e ocultar as de empresa
+        vagasLinkEl?.classList.remove('hidden');
+        trilhasLinkEl?.classList.remove('hidden');
+        mentoriaLinkEl?.classList.remove('hidden');
+        minhasVagasNavEl?.classList.add('hidden');
+        candidatosNavEl?.classList.add('hidden');
+        // Mostrar ou ocultar Minhas Candidaturas conforme número de candidaturas (já ajustado acima)
+        // candidaturasNavEl hidden state já definido anteriormente
+      }
+
+      // Ajustar botão "Ver vagas" no herói conforme tipo de usuário
+      const heroBtn = document.getElementById('hero-ver-vagas');
+      if (heroBtn) {
+        if (!loggedIn || user.tipo === 'empresa') {
+          heroBtn.classList.add('hidden');
+        } else {
+          heroBtn.classList.remove('hidden');
+        }
+      }
+    }
+
+    // Login and signup link actions
+    document.getElementById('login-link').addEventListener('click', (e) => {
+      e.preventDefault();
+      const modal = document.getElementById('login-modal');
+      modal.querySelector('h3').textContent = 'Entrar';
+      modal.querySelector('button[type="submit"]').textContent = 'Entrar';
+      modal.classList.remove('hidden');
+    });
+    document.getElementById('login-link-desktop').addEventListener('click', (e) => {
+      e.preventDefault();
+      const modal = document.getElementById('login-modal');
+      modal.querySelector('h3').textContent = 'Entrar';
+      modal.querySelector('button[type="submit"]').textContent = 'Entrar';
+      modal.classList.remove('hidden');
+    });
+    document.getElementById('signup-link').addEventListener('click', (e) => {
+      e.preventDefault();
+      const modal = document.getElementById('login-modal');
+      modal.querySelector('h3').textContent = 'Cadastre-se';
+      modal.querySelector('button[type="submit"]').textContent = 'Cadastrar';
+      modal.classList.remove('hidden');
+    });
+    document.getElementById('signup-link-desktop').addEventListener('click', (e) => {
+      e.preventDefault();
+      const modal = document.getElementById('login-modal');
+      modal.querySelector('h3').textContent = 'Cadastre-se';
+      modal.querySelector('button[type="submit"]').textContent = 'Cadastrar';
+      modal.classList.remove('hidden');
+    });
+    // Login form submit
+    document.getElementById('login-form').addEventListener('submit', async function(e) {
+      e.preventDefault();
+      const tipo = document.getElementById('login-tipo').value || 'pessoa';
+      // Dados comuns
+      const name = document.getElementById('login-nome').value.trim();
+      // Se tipo for empresa, coletar dados corporativos e armazenar separadamente
+      if (tipo === 'empresa') {
+        const cnpj = document.getElementById('login-cnpj').value.trim();
+        const telefone = document.getElementById('login-telefone').value.trim();
+        const emailContato = document.getElementById('login-email-contato').value.trim();
+        // Armazenar empresa com campos específicos
+        setUser({ tipo, name, cnpj, telefone, email: emailContato, contactEmail: emailContato });
+      } else {
+        // Usuário pessoa (estudante)
+        const email = document.getElementById('login-email').value.trim();
+        const gender = document.getElementById('login-sexo').value || 'N';
+        const dob = document.getElementById('login-nascimento').value || '';
+        let photo = '';
+        const upload = document.getElementById('login-foto-upload').files[0];
+        if (upload) {
+          photo = await fileToDataUrl(upload);
+        }
+        const cpf = document.getElementById('login-cpf').value.trim();
+        setUser({ tipo, name, email, photo, gender, dob, cpf });
+      }
+      updateUI();
+      document.getElementById('login-modal').classList.add('hidden');
+      // Limpar formulário após cadastro/login
+      this.reset();
+    });
+
+    // Helper to convert file to data URL
+    function fileToDataUrl(file) {
+      return new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.onload = () => resolve(reader.result);
+        reader.onerror = reject;
+        reader.readAsDataURL(file);
+      });
+    }
+
+    // Logout button
+    document.getElementById('logout-btn').addEventListener('click', (e) => {
+      e.preventDefault();
+      clearUser();
+      updateUI();
+    });
+
+    // Profile navigation: show profile tab when clicked
+    document.getElementById('perfil-link').addEventListener('click', function(e) {
+      // Show only if logged in
+      const user = getUser();
+      if (user) {
+        // Use the tab system to show the profile section
+        showSection('perfil');
+        // Update hash so page scrolls appropriately
+        window.location.hash = '#perfil';
+      } else {
+        e.preventDefault();
+        alert('Faça login para acessar o perfil.');
+      }
+    });
+
+    // Profile form submit
+    document.getElementById('perfil-form').addEventListener('submit', async function(e) {
+      e.preventDefault();
+      const name = document.getElementById('perfil-nome').value.trim();
+      const email = document.getElementById('perfil-email').value.trim();
+      const gender = document.getElementById('perfil-sexo').value || 'N';
+      const dob = document.getElementById('perfil-nascimento').value || '';
+      let photo = '';
+      const upload = document.getElementById('perfil-foto-upload').files[0];
+      if (upload) {
+        photo = await fileToDataUrl(upload);
+      }
+      const cpfInput = document.getElementById('perfil-cpf');
+      const cpf = cpfInput ? cpfInput.value.trim() : undefined;
+      setUser({ name, email, photo, gender, dob, cpf });
+      updateUI();
+      alert('Perfil salvo com sucesso!');
+    });
+
+    // Export profile
+    document.getElementById('exportar-perfil').addEventListener('click', () => {
+      const user = getUser();
+      if (!user) {
+        alert('Nenhum perfil para exportar');
+        return;
+      }
+      const dataStr = JSON.stringify(user, null, 2);
+      const blob = new Blob([dataStr], { type: 'application/json' });
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement('a');
+      link.href = url;
+      link.download = 'inovagen-perfil.json';
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      URL.revokeObjectURL(url);
+    });
+
+    // Import profile
+    document.getElementById('importar-perfil-input').addEventListener('change', function(e) {
+      const file = this.files[0];
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = (ev) => {
+        try {
+          const data = JSON.parse(ev.target.result);
+          if (data.name && data.email) {
+            setUser(data);
+            updateUI();
+            alert('Perfil importado com sucesso!');
+          } else {
+            alert('Arquivo inválido');
+          }
+        } catch (err) {
+          alert('Erro ao importar o arquivo');
+        }
+      };
+      reader.readAsText(file);
+      // Clear input value
+      this.value = '';
+    });
+
+    // Image preview on profile photo upload
+    document.getElementById('perfil-foto-upload').addEventListener('change', async function() {
+      const file = this.files[0];
+      if (file) {
+        const dataUrl = await fileToDataUrl(file);
+        document.getElementById('perfil-preview').src = dataUrl;
+        document.getElementById('perfil-preview').classList.remove('hidden');
+      }
+      // Update file name label for profile
+      const labelSpan = document.getElementById('perfil-foto-label');
+      labelSpan.textContent = file ? file.name : 'Nenhum arquivo selecionado';
+    });
+
+    // Update file name label for login photo upload
+    document.getElementById('login-foto-upload').addEventListener('change', function() {
+      const file = this.files[0];
+      const labelSpan = document.getElementById('login-foto-label');
+      labelSpan.textContent = file ? file.name : 'Nenhum arquivo selecionado';
+    });
+
+    // Candidatura form interactions
+    let selectedJob = null;
+    // Show candidatura modal when "Candidatar-me" buttons are clicked (requires login)
+    document.querySelectorAll('.requires-login').forEach(btn => {
+      btn.addEventListener('click', function(e) {
+        e.preventDefault();
+        const user = getUser();
+        if (!user) {
+          // Should not happen because button is hidden when not logged in
+          alert('Faça login para se candidatar.');
+          return;
+        }
+        // Determine which job card was clicked
+        const card = this.closest('.job-card');
+        if (card) {
+          const title = card.querySelector('h3')?.textContent || '';
+          const companyInfo = card.querySelector('p')?.textContent || '';
+          const company = companyInfo.split(' · ')[0];
+          selectedJob = {
+            title,
+            company,
+            area: card.dataset.area || '',
+            modalidade: card.dataset.modalidade || '',
+            experiencia: card.dataset.experiencia || '',
+            modelo: card.dataset.modelo || ''
+          };
+        }
+        // Prefill nome and email from user profile
+        document.getElementById('apply-nome').value = user.name || '';
+        document.getElementById('apply-email').value = user.email || '';
+        document.getElementById('apply-mensagem').value = '';
+        document.getElementById('apply-modal').classList.remove('hidden');
+      });
+    });
+    // Cancel candidatura
+    document.getElementById('apply-cancel').addEventListener('click', function(e) {
+      e.preventDefault();
+      document.getElementById('apply-modal').classList.add('hidden');
+    });
+    // Submit candidatura form
+    document.getElementById('apply-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const user = getUser();
+      if (!user) {
+        alert('Faça login para se candidatar.');
+        return;
+      }
+      const mensagem = document.getElementById('apply-mensagem').value.trim();
+      // Add application to user data
+      if (selectedJob) {
+        addApplication(selectedJob, mensagem);
+        addNotification('Candidatura enviada', `Sua candidatura para ${selectedJob.title} foi registrada.`);
+        addPoints(10); // earn points for applying
+      }
+      alert('Candidatura enviada com sucesso!');
+      // Hide modal and reset
+      document.getElementById('apply-modal').classList.add('hidden');
+      this.reset();
+    });
+
+    // Gamificação e candidaturas extras
+
+    // Increment user points by a value and update UI
+    function addPoints(value) {
+      const user = getUser();
+      if (!user) return;
+      user.points = (user.points || 0) + value;
+      setUser(user);
+      updateUI();
+    }
+
+    // Adiciona uma notificação ao usuário
+    function addNotification(title, message) {
+      const user = getUser();
+      if (!user) return;
+      user.notifications.unshift({
+        title: title,
+        message: message,
+        read: false,
+        timestamp: new Date().toLocaleString()
+      });
+      setUser(user);
+      updateNotificationsBadge();
+    }
+
+    // Adiciona uma candidatura ao usuário
+    function addApplication(job, mensagem) {
+      const user = getUser();
+      if (!user) return;
+      user.applications.push({
+        job: job,
+        mensagem: mensagem,
+        status: 'Em análise',
+        completed: false,
+        evaluation: null
+      });
+      setUser(user);
+      updateUI();
+    }
+
+    // Renderiza a lista de candidaturas
+    function renderCandidaturas() {
+      const user = getUser();
+      const list = document.getElementById('candidaturas-list');
+      if (!list) return;
+      list.innerHTML = '';
+      if (!user || !user.applications || user.applications.length === 0) {
+        list.innerHTML = '<p class="text-sm text-gray-600">Nenhuma candidatura ainda.</p>';
+        return;
+      }
+      user.applications.forEach((app, index) => {
+        const status = app.status;
+        let actionsHtml = '';
+        if (!app.completed) {
+          actionsHtml = `<button class="concluir-btn rounded-2xl px-3 py-1 text-xs font-semibold bg-yellow-500 text-blue-900 mt-2" data-index="${index}">Concluir estágio</button>`;
+        } else if (app.completed && !app.evaluation) {
+          actionsHtml = `<button class="avaliar-btn rounded-2xl px-3 py-1 text-xs font-semibold bg-blue-700 text-white mt-2" data-index="${index}">Avaliar estágio</button>`;
+        } else if (app.evaluation) {
+          actionsHtml = `<div class="text-sm text-gray-600 mt-2">Avaliado: ${app.evaluation.nota}/5</div>`;
+        }
+        // Always include Chat button for each application
+        actionsHtml += `<button class="chat-btn rounded-2xl px-3 py-1 text-xs font-semibold bg-green-600 text-white mt-2 ml-2" data-index="${index}">Chat</button>`;
+        const card = document.createElement('div');
+        card.className = 'bg-white rounded-2xl border border-gray-100 shadow-sm p-4';
+        card.innerHTML = `
+          <h4 class="text-md font-bold text-blue-700">${app.job.title}</h4>
+          <p class="text-xs text-gray-600">${app.job.company} · ${app.job.area} · ${app.job.modalidade}</p>
+          <p class="text-sm text-gray-700 mt-1">Status: ${status}</p>
+          ${actionsHtml}
+        `;
+        list.appendChild(card);
+      });
+    }
+
+    // Atualiza o badge de notificações
+    function updateNotificationsBadge() {
+      const user = getUser();
+      const badge = document.getElementById('notifications-badge');
+      if (!badge) return;
+      if (!user || !user.notifications) {
+        badge.classList.add('hidden');
+        return;
+      }
+      const unread = user.notifications.filter(n => !n.read).length;
+      if (unread > 0) {
+        badge.textContent = unread;
+        badge.classList.remove('hidden');
+      } else {
+        badge.classList.add('hidden');
+      }
+    }
+
+    // Renderiza a lista de notificações
+    function renderNotifications() {
+      const user = getUser();
+      const list = document.getElementById('notifications-list');
+      if (!list) return;
+      list.innerHTML = '';
+      if (!user || !user.notifications || user.notifications.length === 0) {
+        list.innerHTML = '<p class="text-sm text-gray-600">Nenhuma notificação.</p>';
+        return;
+      }
+      user.notifications.forEach((notif) => {
+        const item = document.createElement('li');
+        item.className = notif.read ? 'bg-gray-50 p-3 rounded-md' : 'bg-blue-50 p-3 rounded-md';
+        item.innerHTML = `<div class="font-semibold text-sm">${notif.title}</div><div class="text-xs text-gray-600">${notif.message}</div><div class="text-[10px] text-gray-400 mt-1">${notif.timestamp}</div>`;
+        list.appendChild(item);
+      });
+    }
+
+    // Abre modal de notificações
+    document.getElementById('notifications-btn').addEventListener('click', function(e) {
+      e.preventDefault();
+      renderNotifications();
+      document.getElementById('notifications-modal').classList.remove('hidden');
+      // Marcar todas como lidas
+      const user = getUser();
+      if (user && user.notifications) {
+        user.notifications.forEach(n => n.read = true);
+        setUser(user);
+      }
+      updateNotificationsBadge();
+    });
+
+    // Fecha modal de notificações
+    document.getElementById('notifications-close').addEventListener('click', function() {
+      document.getElementById('notifications-modal').classList.add('hidden');
+    });
+
+    // Delegação de eventos para ações das candidaturas
+    document.getElementById('candidaturas-list').addEventListener('click', function(e) {
+      // Use closest button element to handle clicks on nested spans
+      const target = e.target.closest('button');
+      if (!target) return;
+      if (target.classList.contains('concluir-btn')) {
+        const idx = target.getAttribute('data-index');
+        const user = getUser();
+        if (user && user.applications[idx]) {
+          user.applications[idx].status = 'Concluído';
+          user.applications[idx].completed = true;
+          setUser(user);
+          addNotification('Estágio concluído', `Você concluiu o estágio ${user.applications[idx].job.title}. Avalie agora!`);
+          addPoints(20);
+          renderCandidaturas();
+        }
+      } else if (target.classList.contains('avaliar-btn')) {
+        const idx = target.getAttribute('data-index');
+        document.getElementById('evaluation-form').setAttribute('data-index', idx);
+        document.getElementById('evaluation-form').reset();
+        document.getElementById('evaluation-modal').classList.remove('hidden');
+      } else if (target.classList.contains('chat-btn')) {
+        const idx = target.getAttribute('data-index');
+        openChat(idx);
+      }
+    });
+
+    // Cancelar avaliação
+    document.getElementById('evaluation-cancel').addEventListener('click', function(e) {
+      e.preventDefault();
+      document.getElementById('evaluation-modal').classList.add('hidden');
+    });
+
+    // Submeter avaliação
+    document.getElementById('evaluation-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const idx = this.getAttribute('data-index');
+      const nota = parseInt(document.getElementById('evaluation-nota').value, 10);
+      const mensagem = document.getElementById('evaluation-mensagem').value.trim();
+      const user = getUser();
+      if (user && user.applications[idx]) {
+        user.applications[idx].evaluation = { nota: nota, mensagem: mensagem };
+        user.applications[idx].status = 'Avaliado';
+        setUser(user);
+        addNotification('Avaliação enviada', `Sua avaliação do estágio ${user.applications[idx].job.title} foi registrada.`);
+        addPoints(30);
+        renderCandidaturas();
+        document.getElementById('evaluation-modal').classList.add('hidden');
+      }
+    });
+
+    // Chat functionality
+    // Keep track of which application index is currently being chatted
+    let currentChatIndex = null;
+    function openChat(index) {
+      const user = getUser();
+      if (!user || !user.applications || !user.applications[index]) return;
+      currentChatIndex = parseInt(index, 10);
+      // Ensure messages array exists
+      if (!user.applications[currentChatIndex].messages) {
+        user.applications[currentChatIndex].messages = [];
+        setUser(user);
+      }
+      renderChat();
+      document.getElementById('chat-modal').classList.remove('hidden');
+    }
+
+    function renderChat() {
+      const user = getUser();
+      const messagesEl = document.getElementById('chat-messages');
+      if (!user || currentChatIndex === null || !user.applications[currentChatIndex]) return;
+      const messages = user.applications[currentChatIndex].messages || [];
+      messagesEl.innerHTML = '';
+      messages.forEach(msg => {
+        const div = document.createElement('div');
+        if (msg.sender === 'Você') {
+          div.className = 'text-right mb-2';
+          div.innerHTML = `<div class="inline-block rounded-xl px-3 py-2 bg-blue-600 text-white"><span class="text-xs">${msg.sender}:</span> <span class="text-sm">${msg.text}</span></div>`;
+        } else {
+          div.className = 'text-left mb-2';
+          div.innerHTML = `<div class="inline-block rounded-xl px-3 py-2 bg-gray-200 text-gray-800"><span class="text-xs">${msg.sender}:</span> <span class="text-sm">${msg.text}</span></div>`;
+        }
+        messagesEl.appendChild(div);
+      });
+      messagesEl.scrollTop = messagesEl.scrollHeight;
+    }
+
+    // Send message in chat
+    document.getElementById('chat-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const input = document.getElementById('chat-input');
+      const text = input.value.trim();
+      if (!text) return;
+      const user = getUser();
+      if (!user || currentChatIndex === null || !user.applications[currentChatIndex]) return;
+      const app = user.applications[currentChatIndex];
+      if (!app.messages) app.messages = [];
+      app.messages.push({ sender: 'Você', text: text, timestamp: new Date().toLocaleString() });
+      setUser(user);
+      renderChat();
+      input.value = '';
+      // Capture job title for notification
+      const jobTitle = app.job.title;
+      // Simulate company reply after a brief delay
+      setTimeout(() => {
+        const u2 = getUser();
+        if (!u2 || currentChatIndex === null || !u2.applications[currentChatIndex]) return;
+        const a2 = u2.applications[currentChatIndex];
+        if (!a2.messages) a2.messages = [];
+        a2.messages.push({ sender: 'Empresa', text: 'Obrigado pela mensagem! Em breve responderemos.', timestamp: new Date().toLocaleString() });
+        setUser(u2);
+        renderChat();
+        addNotification('Nova mensagem', `A empresa respondeu no chat para a vaga ${jobTitle}.`);
+      }, 1000);
+    });
+
+    // Close chat modal
+    document.getElementById('chat-close').addEventListener('click', function() {
+      document.getElementById('chat-modal').classList.add('hidden');
+    });
+
+    // Filtrar vagas com base nos selects
+    function filterJobs() {
+      const area = document.getElementById('filter-area').value;
+      const modalidade = document.getElementById('filter-modalidade').value;
+      const experiencia = document.getElementById('filter-experiencia').value;
+      const modelo = document.getElementById('filter-modelo').value;
+      document.querySelectorAll('.job-card').forEach(card => {
+        let visible = true;
+        if (area && card.dataset.area !== area) visible = false;
+        if (modalidade && card.dataset.modalidade !== modalidade) visible = false;
+        if (experiencia && card.dataset.experiencia !== experiencia) visible = false;
+        if (modelo && card.dataset.modelo !== modelo) visible = false;
+        card.style.display = visible ? '' : 'none';
+      });
+    }
+    ['filter-area','filter-modalidade','filter-experiencia','filter-modelo'].forEach(id => {
+      const el = document.getElementById(id);
+      if (el) el.addEventListener('change', filterJobs);
+    });
+
+    // Apply phone mask on company contact phone in signup
+    const telLogin = document.getElementById('login-telefone');
+    if (telLogin) {
+      telLogin.addEventListener('input', function(e) {
+        this.value = phoneMask(this.value);
+      });
+    }
+
+    // Apply CPF mask on CPF inputs
+    const cpfLogin = document.getElementById('login-cpf');
+    if (cpfLogin) {
+      cpfLogin.addEventListener('input', function() {
+        this.value = cpfMask(this.value);
+      });
+    }
+    const cpfPerfil = document.getElementById('perfil-cpf');
+    if (cpfPerfil) {
+      cpfPerfil.addEventListener('input', function() {
+        this.value = cpfMask(this.value);
+      });
+    }
+
+    // Initialize signup fields visibility based on current type selection (if any)
+    const tipoSelectInit = document.getElementById('login-tipo');
+    if (tipoSelectInit) {
+      toggleSignupFields(tipoSelectInit.value || '');
+    }
+
+    // Navegação para seção de candidaturas
+    document.getElementById('candidaturas-link').addEventListener('click', function(e) {
+      const user = getUser();
+      // Only allow navigation when there are applications
+      if (!user || !user.applications || user.applications.length === 0) {
+        e.preventDefault();
+        alert('Nenhuma candidatura para mostrar.');
+      } else {
+        // Use the tab system to show the candidaturas section
+        showSection('candidaturas');
+        window.location.hash = '#candidaturas';
+      }
+    });
+
+    // Update year in footer
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Initial UI state
+    updateUI();
+  </script>
+</body>
+</html>
